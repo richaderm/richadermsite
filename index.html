@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richaderm</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary: #C49A6C;
+        --bg: #f8f8f8;
+        --white: #fff;
+        --dark: #222;
+        --shadow: 0 4px 24px #c49a6c22;
+        --radius: 18px;
+      }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: var(--bg);
+        color: var(--dark);
+        margin: 0;
+        min-height: 100vh;
+      }
+      header {
+        background: var(--white);
+        box-shadow: var(--shadow);
+        position: sticky; top: 0; z-index: 10;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 4vw;
+      }
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--primary);
+        text-align: center;
+        margin: 24px 0;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 24px;
+      }
+      nav a {
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: color .2s;
+      }
+      nav a:hover {
+        color: var(--primary);
+      }
+      .video-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 32px 0;
+      }
+      video {
+        width: 100%;
+        max-width: 800px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      footer {
+        background: var(--white);
+        padding: 24px 0;
+        text-align: center;
+        box-shadow: 0 -2px 8px #c49a6c22;
+      }
+      footer p {
+        margin: 0;
+        color: var(--dark);
+        font-size: 0.9rem;
+      }
+      .products-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+        margin: 32px 0;
+      }
+      .product-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 16px;
+        text-align: center;
+        transition: transform .2s;
+      }
+      .product-card:hover {
+        transform: translateY(-4px);
+      }
+      .product-card img {
+        max-width: 100%;
+        border-radius: var(--radius);
+        margin-bottom: 12px;
+      }
+      @media (min-width: 700px) {
+        .banner {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .banner-logo {
+          flex: 1;
+          text-align: left;
+        }
+        .banner-product {
+          flex: 2;
+          text-align: left;
+        }
+      }
+      @media (max-width: 700px) {
+        header {
+          padding: 12px 2vw;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        nav {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .video-wrapper {
+          margin: 24px 0;
+        }
+      }
+      .top-banner {
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 32px;
+      }
+      .top-banner-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: var(--white);
+      }
+      .top-banner-product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .top-banner-product img {
+        max-width: 100%;
+        border-radius: var(--radius);
+        margin-bottom: 16px;
+      }
+      .top-banner-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        opacity: 0.1;
+      }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .main-logo {
+        max-width: 140px;
+        height: auto;
+      }
+      .banner {
+        background: url('banner-bg.jpg') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 0;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 32px;
+      }
+      .banner-content {
+        text-align: center;
+        color: var(--white);
+      }
+      .banner-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 16px;
+      }
+      .banner-content p {
+        font-size: 1.2rem;
+        margin-bottom: 24px;
+      }
+      .btn {
+        background: var(--primary);
+        color: var(--white);
+        padding: 12px 24px;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background .3s;
+      }
+      .btn:hover {
+        background: #a6784d;
+      }
+      .products-section {
+        padding: 64px 0;
+      }
+      .products-section h2 {
+        text-align: center;
+        margin-bottom: 32px;
+        font-size: 2rem;
+        color: var(--primary);
+      }
+      .about-section {
+        padding: 64px 0;
+        background: var(--bg);
+      }
+      .about-section h2 {
+        text-align: center;
+        margin-bottom: 16px;
+        font-size: 2rem;
+        color: var(--primary);
+      }
+      .about-section p {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      .contact-section {
+        padding: 64px 0;
+      }
+      .contact-section h2 {
+        text-align: center;
+        margin-bottom: 32px;
+        font-size: 2rem;
+        color: var(--primary);
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: grid;
+        gap: 16px;
+      }
+      input, textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: var(--radius);
+        font-size: 1rem;
+        width: 100%;
+      }
+      button[type="submit"] {
+        background: var(--primary);
+        color: var(--white);
+        padding: 12px;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background .3s;
+      }
+      button[type="submit"]:hover {
+        background: #a6784d;
+      }
+      .video-popup {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .video-popup-content {
+        position: relative;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .video-popup video {
+        width: 100%;
+        border-radius: 0;
+      }
+      .close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        color: var(--white);
+        font-size: 2rem;
+        cursor: pointer;
+      }
+      .video-thumbnail {
+        width: 100%;
+        max-width: 400px;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .video-thumbnail:hover {
+        transform: scale(1.05);
+      }
+
+      /* DAHA GELİŞMİŞ MOBİL UYUMLULUK */
+      @media (max-width: 500px) {
+        .container {
+          padding: 0 2vw;
+        }
+        .products-list {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .product-card {
+          padding: 10px;
+          font-size: 0.95em;
+        }
+        .banner {
+          padding: 32px 0;
+          min-height: 180px;
+          border-radius: 10px;
+        }
+        .banner-content h1 {
+          font-size: 1.3rem;
+        }
+        .banner-content p {
+          font-size: 1rem;
+        }
+        .btn {
+          padding: 10px 16px;
+          font-size: 0.95rem;
+        }
+        h1, h2 {
+          font-size: 1.2rem !important;
+        }
+        nav {
+          gap: 6px;
+          font-size: 0.95rem;
+        }
+        .main-logo {
+          max-width: 90px;
+          height: auto;
+        }
+        .video-wrapper {
+          margin: 12px 0;
+        }
+        .about-section, .products-section, .contact-section {
+          padding: 24px 0;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="richaderm-logo.jpg" alt="Richaderm Logo" class="main-logo">
+            </div>
+            <nav>
+                <a href="#home">Anasayfa</a>
+                <a href="#products">Ürünler</a>
+                <a href="#about">Hakkımızda</a>
+                <a href="#contact">İletişim</a>
+            </nav>
+        </div>
+    </header>
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h1>Doğal Güzellik, Modern Bakım</h1>
+            <p>Cildiniz için en iyi kozmetik ürünleri burada.</p>
+            <a href="#products" class="btn">Ürünleri İncele</a>
+        </div>
+    </section>
+    <section class="products-section" id="products">
+        <h2>Ürünlerimiz</h2>
+        <div class="products-list">
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="ayak-sampuani.jpg" alt="Ayak Şampuanı">
+                <h3>Ayak Şampuanı</h3>
+                <p>Ayak sağlığınız için özel olarak geliştirilmiş, ferahlatıcı ve temizleyici ayak şampuanı.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="ultra-slim-jel.jpg" alt="Ultra Slim Jel">
+                <h3>Ultra Slim Jel</h3>
+                <p>Bölgesel incelmeye yardımcı, ferahlatıcı ve etkili jel.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="intimyıkamajeli.jpg" alt="İntim Yıkama Jeli">
+                <h3>İntim Yıkama Jeli</h3>
+                <p>Hassas bölgeler için özel olarak geliştirilmiş, nazik temizleyici jel.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="yuz-yikama-jeli.jpg" alt="Yüz Yıkama Jeli">
+                <h3>Yüz Yıkama Jeli</h3>
+                <p>Cildinizi nazikçe temizleyen ve ferahlatan yüz yıkama jeli.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="tonik.jpg" alt="Richaderm Tonik">
+                <h3>Richaderm Tonik</h3>
+                <p>Canlandırıcı ve gözenek sıkılaştırıcı tonik. Glycolic Acid 5%, AHA+BHA, Lactic Acid içerir. Hassas dahil tüm cilt tipleri için uygundur.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="tirnak-bakim.jpg" alt="Tırnak Bakım Losyon & Sprey">
+                <h3>Tırnak Bakım Losyon & Sprey</h3>
+                <p>Tırnakların bakımlı ve canlı görünmesine yardımcı olur. Foot and Nail Care, losyon ve sprey formunda.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="beyazlatici-krem.jpg" alt="Beyazlatıcı Krem">
+                <h3>Beyazlatıcı Krem</h3>
+                <p>Aydınlatıcı Collagen, yoğun beyazlatıcı etki. Cildinizin daha parlak ve eşit tonda görünmesine yardımcı olur.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="intim-bakim.jpg" alt="İntim Bakım Spreyi">
+                <h3>İntim Bakım Spreyi</h3>
+                <p>Lavanta, çay ağacı ve aynısafa özü ile zenginleştirilmiş; hassas ciltler dahil tüm cilt tipleri için uygundur. İntim bölgesinin doğal florasını korur.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+                <img src="anti-selulit-losyon.jpg" alt="Anti-Selülit Losyon">
+                <h3>Anti-Selülit Losyon</h3>
+                <p>Çatlakların görünümünü azaltır, cildin elastikiyetini artırır, nemlendirir ve cilt tonunu düzenler. \"Richaderm ile Çatlaklara Veda, Pürüzsüz Cilde Merhaba!\"</p>
+            </a>
+        </div>
+    </section>
+    <section class="video-section" id="video">
+        <h2>Tanıtım Videomuz</h2>
+        <div class="video-wrapper">
+            <video controls poster="video-poster.jpg" class="video-small">
+                <source src="tanitim.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+    </section>
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <p class="about-lead">
+                Richaderm olarak, kozmetik sektöründe üretici kimliğimizle öne çıkıyor ve sağlığa verdiğimiz önemi her ürünümüzde hissettiriyoruz.
+            </p>
+            <p>
+                Doğal ve güvenilir içeriklerle, cildinizin ihtiyaçlarına uygun çözümler geliştiriyoruz. Üretimden paketlemeye kadar her aşamada kaliteyi ve hijyeni ön planda tutuyoruz. 
+                Müşterilerimizin sağlığı ve memnuniyeti bizim için her şeyden önce gelir. 
+                Yenilikçi yaklaşımımız ve uzman ekibimizle, güzelliğinize değer katmak için çalışıyoruz.
+            </p>
+            <p>
+                Richaderm ile güzellik, sağlık ve güven bir arada!
+            </p>
+        </div>
+    </section>
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <form>
+                <input type="text" placeholder="Adınız" required>
+                <input type="email" placeholder="E-posta" required>
+                <textarea placeholder="Mesajınız" required></textarea>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Richaderm. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
