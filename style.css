@@ -1,422 +1,436 @@
-:root {
-  --primary: #C49A6C; /* Mevcut altın rengi */
-  --secondary: #A6784D; /* Biraz daha koyu altın rengi */
-  --bg: #f8f8f8;
-  --white: #fff;
-  --dark: #222;
-  --shadow-light: 0 4px 24px rgba(196, 154, 108, 0.15); /* Hafif gölge */
-  --shadow-medium: 0 8px 30px rgba(196, 154, 108, 0.25); /* Orta gölge */
-  --shadow-dark: 0 12px 40px rgba(0, 0, 0, 0.2); /* Koyu elemanlar için */
-  --radius: 18px;
-  --transition-fast: 0.2s ease-out;
-  --transition-medium: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--bg); /* Arka plan resmi yerine düz renk */
-  color: var(--dark);
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden; /* Yatay kaydırmayı engelle */
-}
-header {
-  background: var(--white);
-  box-shadow: var(--shadow-light); /* Daha hafif bir gölge */
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* Z-index'i artırın */
-  padding: 12px 0;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 4vw;
-}
-h1 {
-  font-family: 'Playfair Display', serif; /* Yeni yazı tipi */
-  font-size: 3.2rem; /* Daha büyük */
-  color: var(--primary);
-  text-align: center;
-  margin: 32px 0 24px;
-  letter-spacing: 1px; /* Harf aralığı */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Hafif gölge */
-}
-h2 {
-  font-family: 'Playfair Display', serif; /* Yeni yazı tipi */
-  text-align: center;
-  margin-bottom: 32px;
-  font-size: 2.5rem; /* Daha büyük */
-  color: var(--primary);
-  letter-spacing: 0.5px;
-  position: relative;
-  padding-bottom: 10px;
-}
-h2::after { /* Başlık altına dekoratif çizgi */
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 80px;
-  height: 3px;
-  background-color: var(--primary);
-  border-radius: 2px;
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-.main-logo {
-  max-width: 120px; /* Logoyu biraz küçült */
-  height: auto;
-  transition: transform var(--transition-fast);
-}
-.main-logo:hover {
-  transform: scale(1.05); /* Logo üzerine gelince büyüme efekti */
-}
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 0; /* Header içinde olduğu için kaldırıldı */
-}
-nav a {
-  color: var(--dark);
-  font-weight: 600;
-  font-size: 1.05rem; /* Biraz küçült */
-  text-decoration: none;
-  position: relative;
-  transition: color var(--transition-fast);
-  padding: 5px 0;
-}
-nav a:hover {
-  color: var(--primary);
-}
-nav a::after { /* Alt çizgi efekti */
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: width var(--transition-fast);
-}
-nav a:hover::after {
-  width: 100%;
-}
+<style>
+      :root {
+        --primary: #C49A6C;
+        --secondary: #A6784D;
+        --bg: #f8f8f8;
+        --white: #fff;
+        --dark: #222;
+        --shadow-light: 0 4px 24px rgba(196, 154, 108, 0.15);
+        --shadow-medium: 0 8px 30px rgba(196, 154, 108, 0.25);
+        --shadow-dark: 0 12px 40px rgba(0, 0, 0, 0.2);
+        --radius: 18px;
+        --transition-fast: 0.2s ease-out;
+        --transition-medium: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(to bottom, rgba(248, 248, 248, 0.8), rgba(248, 248, 248, 0.8)), url('richaderm-background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: var(--dark);
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+      header {
+        background: var(--white);
+        box-shadow: var(--shadow-light);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 12px 0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 4vw;
+      }
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.2rem;
+        color: var(--primary);
+        text-align: center;
+        margin: 32px 0 24px;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+      }
+      h2 {
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        margin-bottom: 32px;
+        font-size: 2.5rem;
+        color: var(--primary);
+        letter-spacing: 0.5px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .main-logo {
+        max-width: 120px;
+        height: auto;
+        transition: transform var(--transition-fast);
+      }
+      .main-logo:hover {
+        transform: scale(1.05);
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 0;
+      }
+      nav a {
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 1.05rem;
+        text-decoration: none;
+        position: relative;
+        transition: color var(--transition-fast);
+        padding: 5px 0;
+      }
+      nav a:hover {
+        color: var(--primary);
+      }
+      nav a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width var(--transition-fast);
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
 
-.banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('http://googleusercontent.com/image_generation_content/3') no-repeat center center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 0; /* Daha fazla dikey dolgu */
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
-  margin-bottom: 40px; /* Alt boşluk */
-  color: var(--white);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.banner::before { /* Parçacık efekti veya desen için */
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.7;
-}
-.banner-content {
-  position: relative;
-  z-index: 2; /* İçeriğin önde olmasını sağla */
-  max-width: 800px;
-  padding: 0 20px;
-}
-.banner-content h1 {
-  font-size: 3.8rem; /* Daha büyük başlık */
-  margin-bottom: 20px;
-  color: var(--white); /* Beyaz renk */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Okunurluk için gölge */
-}
-.banner-content p {
-  font-size: 1.4rem; /* Daha büyük paragraf */
-  margin-bottom: 30px;
-  line-height: 1.5;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-}
-.btn {
-  background: var(--primary);
-  color: var(--white);
-  padding: 14px 32px; /* Daha büyük buton */
-  border: none;
-  border-radius: 50px; /* Yuvarlak buton */
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
-  text-transform: uppercase; /* Büyük harfler */
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-.btn:hover {
-  background: var(--secondary); /* Hover'da biraz daha koyu */
-  transform: translateY(-3px); /* Hafif yukarı kalkma */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+      .banner {
+        background: url('richaderm-banner.jpg') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 0;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-medium);
+        margin-bottom: 40px;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .banner-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+      }
+      .banner-content h1 {
+        font-size: 3.8rem;
+        margin-bottom: 20px;
+        color: #fff;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-shadow:
+          0 2px 8px rgba(0,0,0,0.55),
+          0 1px 0 #fff,
+          0 0 2px #c49a6c;
+        background: rgba(0,0,0,0.18);
+        display: inline-block;
+        padding: 0.2em 0.8em;
+        border-radius: 10px;
+      }
+      .banner-content p {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        line-height: 1.5;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.45), 0 1px 0 #fff;
+        background: rgba(0,0,0,0.10);
+        display: inline-block;
+        padding: 0.2em 0.8em;
+        border-radius: 8px;
+      }
+      .btn {
+        background: var(--primary);
+        color: var(--white);
+        padding: 14px 32px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background var(--transition-fast), transform var(--transition-fast);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+      .btn:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      }
 
-.products-section {
-  padding: 64px 0;
-}
-.products-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Daha geniş kartlar */
-  gap: 30px; /* Daha fazla boşluk */
-  margin: 40px 0;
-}
-.product-card {
-  background: rgba(255, 255, 255, 0.1); /* Hafif şeffaf beyaz */
-  backdrop-filter: blur(5px); /* Arka planı bulanıklaştır */
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-light); /* Hafif gölge */
-  padding: 30px 20px 25px 20px;
-  text-align: center;
-  transition: transform var(--transition-medium), box-shadow var(--transition-medium), background var(--transition-medium);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif beyaz çerçeve */
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%; /* Tüm kartların aynı yükseklikte olmasını sağlar */
-}
-.product-card:hover {
-  transform: translateY(-8px) scale(1.02); /* Daha belirgin kalkma ve büyüme */
-  box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
-  background: rgba(255, 255, 255, 0.2); /* Hover'da daha az şeffaf */
-}
-.product-card img {
-  display: block;
-  margin: 0 auto 20px auto;
-  max-width: 90%; /* Resmi biraz küçült */
-  height: 200px; /* Sabit yükseklik */
-  object-fit: contain;
-  border-radius: var(--radius);
-  background: var(--white);
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  transform: perspective(800px) rotateY(-10deg) scale(1.05); /* Daha belirgin 3D efekti */
-  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-  padding: 10px; /* İç boşluk */
-}
-.product-card:hover img {
-  transform: perspective(800px) rotateY(10deg) scale(1.1); /* Hover'da ters yöne 3D ve daha fazla büyüme */
-  box-shadow: 0 16px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(0,0,0,0.1);
-}
-.product-card h3 {
-  margin: 0 0 12px 0;
-  font-size: 1.3rem; /* Daha büyük başlık */
-  font-weight: 700;
-  color: var(--primary);
-  text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
-}
-.product-card p {
-  margin: 0;
-  font-size: 1.05rem; /* Biraz daha büyük paragraf */
-  color: var(--primary); /* Altın rengi */
-  opacity: 0.9;
-  line-height: 1.4;
-  flex-grow: 1; /* Açıklamanın yerleşmesini sağlar */
-}
+      .products-section {
+        padding: 64px 0;
+      }
+      .products-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+      .product-card {
+        background: rgba(240, 240, 240, 0.7);
+        backdrop-filter: blur(5px);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-light);
+        padding: 30px 20px 25px 20px;
+        text-align: center;
+        transition: transform var(--transition-medium), box-shadow var(--transition-medium), background var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .product-card:hover {
+        transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        background: rgba(240, 240, 240, 0.9);
+      }
+      .product-card img {
+        display: block;
+        margin: 0 auto 25px auto;
+        width: 100%;
+        max-width: 380px;
+        height: 380px;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        border-radius: var(--radius);
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 14px 40px rgba(0,0,0,0.18), 0 0 8px rgba(0,0,0,0.08);
+        transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        padding: 12px;
+      }
+      .product-card:hover img {
+        transform: scale(1.09) translateZ(24px);
+        box-shadow: 0 28px 70px rgba(0,0,0,0.32), 0 0 16px rgba(0,0,0,0.14);
+      }
+      .product-card .advice {
+        margin-top: 16px;
+        font-size: 1.01rem;
+        color: #388e3c;
+        font-weight: 600;
+        background: #f5fff5;
+        border-left: 4px solid #b07a2a;
+        border-radius: 7px;
+        padding: 8px 14px;
+        box-shadow: 0 2px 8px #c49a6c11;
+        display: inline-block;
+        max-width: 95%;
+      }
+      .product-card h3 {
+        margin: 0 0 12px 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #b07a2a;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 0 1px #fff;
+        letter-spacing: 0.5px;
+      }
+      .product-card p {
+        margin: 0;
+        font-size: 1.08rem;
+        color: #7a4a00;
+        font-weight: 500;
+        opacity: 1;
+        line-height: 1.5;
+        flex-grow: 1;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.07);
+      }
 
-.video-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 50px 0; /* Daha fazla boşluk */
-  position: relative;
-  padding: 0 20px;
-}
-video {
-  width: 600px; /* Maksimum genişliği artır */
-  max-width: 90vw;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-dark); /* Daha belirgin gölge */
-  background: #181818;
-  display: block;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-video:hover {
-  transform: scale(1.01); /* Hafif büyüme */
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
-}
+      .video-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0;
+        position: relative;
+        padding: 0 20px;
+      }
+      video {
+        width: 600px;
+        max-width: 90vw;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-dark);
+        background: #181818;
+        display: block;
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      video:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      }
 
-footer {
-  background: var(--white);
-  padding: 28px 0; /* Daha fazla dolgu */
-  text-align: center;
-  box-shadow: 0 -4px 12px rgba(196, 154, 108, 0.1); /* Daha belirgin gölge */
-  margin-top: auto; /* Sayfanın altına sabitle */
-  border-top: 1px solid #eee;
-}
-footer p {
-  margin: 0;
-  color: var(--dark);
-  font-size: 0.95rem; /* Biraz daha büyük */
-  opacity: 0.8;
-}
+      footer {
+        background: var(--white);
+        padding: 28px 0;
+        text-align: center;
+        box-shadow: 0 -4px 12px rgba(196, 154, 108, 0.1);
+        margin-top: auto;
+        border-top: 1px solid #eee;
+      }
+      footer p {
+        margin: 0;
+        color: var(--dark);
+        font-size: 0.95rem;
+        opacity: 0.8;
+      }
 
-.about-section {
-  padding: 64px 0;
-  background: var(--bg);
-}
-.about-section p {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-.contact-section {
-  padding: 64px 0;
-}
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: grid;
-  gap: 16px;
-}
-input, textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
-}
-button[type="submit"] {
-  background: var(--primary);
-  color: var(--white);
-  padding: 12px;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background .3s;
-}
-button[type="submit"]:hover {
-  background: #a6784d;
-}
-/* DAHA GELİŞMİŞ MOBİL UYUMLULUK */
-@media (max-width: 768px) { /* Orta boyutlu tabletler için */
-  h1 {
-    font-size: 2.5rem !important;
-  }
-  h2 {
-    font-size: 2rem !important;
-  }
-  .products-list {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-  }
-  .product-card {
-    padding: 20px 15px;
-  }
-  .product-card img {
-    height: 160px;
-  }
-  .banner {
-    padding: 60px 0;
-  }
-  .banner-content h1 {
-    font-size: 2.5rem;
-  }
-  .banner-content p {
-    font-size: 1.1rem;
-  }
-  .btn {
-    padding: 10px 24px;
-    font-size: 0.95rem;
-  }
-}
+      .about-section {
+        padding: 64px 0;
+        background: var(--bg);
+      }
+      .about-section p {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      .contact-section {
+        padding: 64px 0;
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: grid;
+        gap: 16px;
+      }
+      input, textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: var(--radius);
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button[type="submit"] {
+        background: var(--primary);
+        color: var(--white);
+        padding: 12px;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background .3s;
+      }
+      button[type="submit"]:hover {
+        background: #a6784d;
+      }
+      /* Responsive */
+      @media (max-width: 768px) {
+        h1 { font-size: 2.5rem !important; }
+        h2 { font-size: 2rem !important; }
+        .products-list { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .product-card { padding: 20px 15px; }
+        .product-card img {
+          max-width: 240px;
+          height: 240px;
+          aspect-ratio: 1/1;
+        }
+        .banner { padding: 60px 0; }
+        .banner-content h1 { font-size: 2.5rem; }
+        .banner-content p { font-size: 1.1rem; }
+        .btn { padding: 10px 24px; font-size: 0.95rem; }
+      }
 
-@media (max-width: 500px) { /* Küçük telefonlar için */
-  .container {
-    padding: 0 4vw; /* Daha fazla yan boşluk */
-  }
-  header {
-    padding: 8px 0;
-  }
-  .main-logo {
-    max-width: 100px;
-  }
-  nav {
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-end; /* Navigasyonu sağa yasla */
-  }
-  nav a {
-    font-size: 0.9rem;
-  }
-  h1 {
-    font-size: 2rem !important;
-    margin: 24px 0 16px;
-  }
-  h2 {
-    font-size: 1.8rem !important;
-    margin-bottom: 24px;
-  }
-  .banner {
-    padding: 40px 0;
-    min-height: 150px;
-    border-radius: 10px;
-    margin-bottom: 24px;
-  }
-  .banner-content h1 {
-    font-size: 1.8rem;
-  }
-  .banner-content p {
-    font-size: 1rem;
-    margin-bottom: 18px;
-  }
-  .products-list {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .product-card {
-    padding: 18px 12px;
-  }
-  .product-card img {
-    height: 120px;
-    margin-bottom: 15px;
-    transform: perspective(300px) rotateY(-5deg) scale(1.03);
-  }
-  .product-card:hover img {
-    transform: perspective(300px) rotateY(5deg) scale(1.08);
-  }
-  .product-card h3 {
-    font-size: 1.1rem;
-  }
-  .product-card p {
-    font-size: 0.95rem;
-  }
-  .video-small {
-    max-width: 95vw;
-    width: 100%;
-  }
-  .about-section, .products-section, .contact-section {
-    padding: 32px 0;
-  }
-  form {
-    padding: 0 10px;
-  }
-}
+      @media (max-width: 500px) { /* Küçük telefonlar için */
+        .container {
+          padding: 0 4vw; /* Daha fazla yan boşluk */
+        }
+        header {
+          padding: 8px 0;
+        }
+        .main-logo {
+          max-width: 100px;
+        }
+        nav {
+          flex-direction: column;
+          gap: 8px;
+          align-items: flex-end; /* Navigasyonu sağa yasla */
+        }
+        nav a {
+          font-size: 0.9rem;
+        }
+        h1 {
+          font-size: 2rem !important;
+          margin: 24px 0 16px;
+        }
+        h2 {
+          font-size: 1.8rem !important;
+          margin-bottom: 24px;
+        }
+        .banner {
+          padding: 40px 0;
+          min-height: 150px;
+          border-radius: 10px;
+          margin-bottom: 24px;
+        }
+        .banner-content h1 {
+          font-size: 1.8rem;
+        }
+        .banner-content p {
+          font-size: 1rem;
+          margin-bottom: 18px;
+        }
+        .products-list {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .product-card {
+          padding: 18px 12px;
+        }
+        .product-card img {
+          max-width: 150px;
+          height: 150px;
+          aspect-ratio: 1/1;
+          margin-bottom: 15px;
+        }
+        .product-card:hover img {
+          transform: perspective(300px) rotateY(5deg) scale(1.08);
+        }
+        .product-card h3 {
+          font-size: 1.1rem;
+        }
+        .product-card p {
+          font-size: 0.95rem;
+        }
+        .video-small {
+          max-width: 95vw;
+          width: 100%;
+        }
+        .about-section, .products-section, .contact-section {
+          padding: 32px 0;
+        }
+        form {
+          padding: 0 10px;
+        }
+      }
+    </style>
+        .product-card p {
+          font-size: 0.95rem;
+        }
+        .video-small {
+          max-width: 95vw;
+          width: 100%;
+        }
+        .about-section, .products-section, .contact-section {
+          padding: 32px 0;
+        }
+        form {
+          padding: 0 10px;
+        }
+      }
+    </style>
