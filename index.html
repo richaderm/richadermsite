@@ -5,26 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richaderm</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --primary: #C49A6C;
+        --primary: #C49A6C; /* Mevcut altın rengi */
+        --secondary: #A6784D; /* Biraz daha koyu altın rengi */
         --bg: #f8f8f8;
         --white: #fff;
         --dark: #222;
-        --shadow: 0 4px 24px #c49a6c22;
+        --shadow-light: 0 4px 24px rgba(196, 154, 108, 0.15); /* Hafif gölge */
+        --shadow-medium: 0 8px 30px rgba(196, 154, 108, 0.25); /* Orta gölge */
+        --shadow-dark: 0 12px 40px rgba(0, 0, 0, 0.2); /* Koyu elemanlar için */
         --radius: 18px;
+        --transition-fast: 0.2s ease-out;
+        --transition-medium: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); /* Daha yumuşak ve hafifçe yavaş bir geçiş */
       }
       body {
         font-family: 'Montserrat', sans-serif;
-        background: var(--bg);
+        background: linear-gradient(to bottom, rgba(248, 248, 248, 0.8), rgba(248, 248, 248, 0.8)), url('http://googleusercontent.com/image_generation_content/9') no-repeat center center fixed;
+        background-size: cover;
         color: var(--dark);
         margin: 0;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden; /* Yatay kaydırmayı engelle */
       }
       header {
         background: var(--white);
-        box-shadow: var(--shadow);
-        position: sticky; top: 0; z-index: 10;
+        box-shadow: var(--shadow-light); /* Daha hafif bir gölge */
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Z-index'i artırın */
+        padding: 12px 0;
       }
       .container {
         max-width: 1200px;
@@ -32,142 +45,28 @@
         padding: 0 4vw;
       }
       h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
+        font-family: 'Playfair Display', serif; /* Yeni yazı tipi */
+        font-size: 3.2rem; /* Daha büyük */
         color: var(--primary);
         text-align: center;
-        margin: 24px 0;
+        margin: 32px 0 24px;
+        letter-spacing: 1px; /* Harf aralığı */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Hafif gölge */
       }
-      nav {
-        display: flex;
-        justify-content: center;
-        gap: 32px;
-        margin-bottom: 24px;
-      }
-      nav a {
-        color: var(--dark);
-        font-weight: 600;
-        font-size: 1.1rem;
-        text-decoration: none;
-        transition: color .2s;
-      }
-      nav a:hover {
-        color: var(--primary);
-      }
-      .video-wrapper {
-        display: flex;
-        justify-content: center;
-        margin: 32px 0;
-      }
-      video {
-        width: 100%;
-        max-width: 800px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-      }
-      footer {
-        background: var(--white);
-        padding: 24px 0;
+      h2 {
+        font-family: 'Playfair Display', serif; /* Yeni yazı tipi */
         text-align: center;
-        box-shadow: 0 -2px 8px #c49a6c22;
-      }
-      footer p {
-        margin: 0;
-        color: var(--dark);
-        font-size: 0.9rem;
-      }
-      .products-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 16px;
-        margin: 32px 0;
-      }
-      .product-card {
-        background: var(--white);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 16px;
-        text-align: center;
-        transition: transform .2s;
-      }
-      .product-card:hover {
-        transform: translateY(-4px);
-      }
-      .product-card img {
-        max-width: 100%;
-        border-radius: var(--radius);
-        margin-bottom: 12px;
-      }
-      @media (min-width: 700px) {
-        .banner {
-          flex-direction: row;
-          justify-content: space-between;
-        }
-        .banner-logo {
-          flex: 1;
-          text-align: left;
-        }
-        .banner-product {
-          flex: 2;
-          text-align: left;
-        }
-      }
-      @media (max-width: 700px) {
-        header {
-          padding: 12px 2vw;
-        }
-        h1 {
-          font-size: 2rem;
-        }
-        nav {
-          flex-direction: column;
-          gap: 12px;
-        }
-        .video-wrapper {
-          margin: 24px 0;
-        }
-      }
-      .top-banner {
-        position: relative;
-        overflow: hidden;
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         margin-bottom: 32px;
-      }
-      .top-banner-content {
+        font-size: 2.5rem; /* Daha büyük */
+        color: var(--primary);
+        letter-spacing: 0.5px;
         position: relative;
-        z-index: 2;
-        text-align: center;
-        color: var(--white);
-      }
-      .top-banner-product {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .top-banner-product img {
-        max-width: 100%;
-        border-radius: var(--radius);
-        margin-bottom: 16px;
-      }
-      .top-banner-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-        opacity: 0.1;
+        padding-bottom: 10px;
       }
       .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px 0;
       }
       .logo {
         font-size: 1.8rem;
@@ -175,62 +74,231 @@
         color: var(--primary);
       }
       .main-logo {
-        max-width: 140px;
+        max-width: 120px; /* Logoyu biraz küçült */
         height: auto;
+        transition: transform var(--transition-fast);
       }
+      .main-logo:hover {
+        transform: scale(1.05); /* Logo üzerine gelince büyüme efekti */
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 0; /* Header içinde olduğu için kaldırıldı */
+      }
+      nav a {
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 1.05rem; /* Biraz küçült */
+        text-decoration: none;
+        position: relative;
+        transition: color var(--transition-fast);
+        padding: 5px 0;
+      }
+      nav a:hover {
+        color: var(--primary);
+      }
+      nav a::after { /* Alt çizgi efekti */
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width var(--transition-fast);
+      }
+      nav a::after { /* Alt çizgi efekti */
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width var(--transition-fast);
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+
       .banner {
-        background: url('banner-bg.jpg') no-repeat center center/cover;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('richaderm-banner.jpg') no-repeat center center/cover;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 80px 0;
+        padding: 100px 0; /* Daha fazla dikey dolgu */
         border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        margin-bottom: 32px;
+        box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
+        margin-bottom: 40px; /* Alt boşluk */
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .banner::before { /* Parçacık efekti veya desen için */
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.7;
       }
       .banner-content {
-        text-align: center;
-        color: var(--white);
+        position: relative;
+        z-index: 2; /* İçeriğin önde olmasını sağla */
+        max-width: 800px;
+        padding: 0 20px;
       }
       .banner-content h1 {
-        font-size: 2.8rem;
-        margin-bottom: 16px;
+        font-size: 3.8rem; /* Daha büyük başlık */
+        margin-bottom: 20px;
+        color: var(--white); /* Beyaz renk */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Okunurluk için gölge */
       }
       .banner-content p {
-        font-size: 1.2rem;
-        margin-bottom: 24px;
+        font-size: 1.4rem; /* Daha büyük paragraf */
+        margin-bottom: 30px;
+        line-height: 1.5;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
       }
       .btn {
         background: var(--primary);
         color: var(--white);
-        padding: 12px 24px;
+        padding: 14px 32px; /* Daha büyük buton */
         border: none;
-        border-radius: var(--radius);
-        font-size: 1rem;
+        border-radius: 50px; /* Yuvarlak buton */
+        font-size: 1.1rem;
         cursor: pointer;
-        transition: background .3s;
+        transition: background var(--transition-fast), transform var(--transition-fast);
+        text-transform: uppercase; /* Büyük harfler */
+        font-weight: 700;
+        letter-spacing: 0.5px;
       }
       .btn:hover {
-        background: #a6784d;
+        background: var(--secondary); /* Hover'da biraz daha koyu */
+        transform: translateY(-3px); /* Hafif yukarı kalkma */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       }
+
       .products-section {
         padding: 64px 0;
       }
-      .products-section h2 {
-        text-align: center;
-        margin-bottom: 32px;
-        font-size: 2rem;
-        color: var(--primary);
+      .products-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Kart genişliği biraz ayarlandı */
+        gap: 30px; /* Boşluklar daha dengeli */
+        margin: 40px 0;
       }
+      .product-card {
+        background: rgba(240, 240, 240, 0.7); /* Şeffaf açık gri arka plan */
+        backdrop-filter: blur(5px); /* Arka planı bulanıklaştır */
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-light); /* Hafif gölge */
+        padding: 30px 20px 25px 20px;
+        text-align: center;
+        transition: transform var(--transition-medium), box-shadow var(--transition-medium), background var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; /* Tüm kartların aynı yükseklikte olmasını sağlar */
+        
+        /* 3D Efekt için eklemeler */
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .product-card:hover {
+        transform: translateY(-10px) rotateX(2deg) rotateY(2deg); /* Hafif yukarı kayma ve 3D dönüş */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Daha belirgin ve yumuşak bir gölge */
+        background: rgba(240, 240, 240, 0.9); /* Hover'da daha az şeffaf */
+      }
+
+      .product-card img {
+        display: block;
+        margin: 0 auto 25px auto;
+        width: 100%;
+        max-width: 220px;
+        height: 220px;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        border-radius: var(--radius);
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        /* Gölge ayarı güncellendi */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 0 5px rgba(0,0,0,0.05); 
+        transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        padding: 10px;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.05) translateZ(20px); /* Hafif büyüme ve Z ekseninde öne çıkma */
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.1); /* Daha belirgin ve yumuşak bir gölge */
+      }
+
+      .product-card h3 {
+        margin: 0 0 12px 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #b07a2a; /* Daha koyu ve canlı altın */
+        text-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 0 1px #fff;
+        letter-spacing: 0.5px;
+      }
+      .product-card p {
+        margin: 0;
+        font-size: 1.08rem;
+        color: #7a4a00; /* Daha koyu ve canlı bir ton */
+        font-weight: 500;
+        opacity: 1;
+        line-height: 1.5;
+        flex-grow: 1;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.07);
+      }
+
+      .video-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0; /* Daha fazla boşluk */
+        position: relative;
+        padding: 0 20px;
+      }
+      video {
+        width: 600px; /* Maksimum genişliği artır */
+        max-width: 90vw;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-dark); /* Daha belirgin gölge */
+        background: #181818;
+        display: block;
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      video:hover {
+        transform: scale(1.01); /* Hafif büyüme */
+        box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      }
+
+      footer {
+        background: var(--white);
+        padding: 28px 0; /* Daha fazla dolgu */
+        text-align: center;
+        box-shadow: 0 -4px 12px rgba(196, 154, 108, 0.1); /* Daha belirgin gölge */
+        margin-top: auto; /* Sayfanın altına sabitle */
+        border-top: 1px solid #eee;
+      }
+      footer p {
+        margin: 0;
+        color: var(--dark);
+        font-size: 0.95rem; /* Biraz daha büyük */
+        opacity: 0.8;
+      }
+
       .about-section {
         padding: 64px 0;
         background: var(--bg);
-      }
-      .about-section h2 {
-        text-align: center;
-        margin-bottom: 16px;
-        font-size: 2rem;
-        color: var(--primary);
       }
       .about-section p {
         text-align: center;
@@ -240,12 +308,6 @@
       }
       .contact-section {
         padding: 64px 0;
-      }
-      .contact-section h2 {
-        text-align: center;
-        margin-bottom: 32px;
-        font-size: 2rem;
-        color: var(--primary);
       }
       form {
         max-width: 600px;
@@ -259,6 +321,7 @@
         border-radius: var(--radius);
         font-size: 1rem;
         width: 100%;
+        box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
       }
       button[type="submit"] {
         background: var(--primary);
@@ -273,94 +336,101 @@
       button[type="submit"]:hover {
         background: #a6784d;
       }
-      .video-popup {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-      }
-      .video-popup-content {
-        position: relative;
-        max-width: 90%;
-        margin: 0 auto;
-        padding: 0;
-        border-radius: var(--radius);
-        overflow: hidden;
-      }
-      .video-popup video {
-        width: 100%;
-        border-radius: 0;
-      }
-      .close {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        color: var(--white);
-        font-size: 2rem;
-        cursor: pointer;
-      }
-      .video-thumbnail {
-        width: 100%;
-        max-width: 400px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        transition: transform .2s;
-      }
-      .video-thumbnail:hover {
-        transform: scale(1.05);
-      }
-
       /* DAHA GELİŞMİŞ MOBİL UYUMLULUK */
-      @media (max-width: 500px) {
-        .container {
-          padding: 0 2vw;
+      @media (max-width: 768px) { /* Orta boyutlu tabletler için */
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
         }
         .products-list {
-          grid-template-columns: 1fr;
-          gap: 12px;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Mobil tablet uyumu için genişlik biraz daha ayarlandı */
+          gap: 25px; /* Boşluk mobile özel azaltıldı */
         }
         .product-card {
-          padding: 10px;
-          font-size: 0.95em;
+          padding: 20px 15px;
+        }
+        .product-card img { /* Mobil tablet uyumu */
+          max-width: 150px; /* Resim boyutu biraz küçültüldü */
+          height: 150px;
+          margin-bottom: 15px;
         }
         .banner {
-          padding: 32px 0;
-          min-height: 180px;
-          border-radius: 10px;
+          padding: 60px 0;
         }
         .banner-content h1 {
-          font-size: 1.3rem;
+          font-size: 2.5rem;
+        }
+        .banner-content p {
+          font-size: 1.1rem;
+        }
+        .btn {
+          padding: 10px 24px;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 500px) { /* Küçük telefonlar için */
+        .container {
+          padding: 0 4vw; /* Daha fazla yan boşluk */
+        }
+        header {
+          padding: 8px 0;
+        }
+        .main-logo {
+          max-width: 100px;
+        }
+        nav {
+          flex-direction: column;
+          gap: 8px;
+          align-items: flex-end; /* Navigasyonu sağa yasla */
+        }
+        nav a {
+          font-size: 0.9rem;
+        }
+        h1 {
+          font-size: 2rem !important;
+          margin: 24px 0 16px;
+        }
+        h2 {
+          font-size: 1.8rem !important;
+          margin-bottom: 24px;
+        }
+        .banner {
+          padding: 40px 0;
+          min-height: 150px;
+          border-radius: 10px;
+          margin-bottom: 24px;
+        }
+        .banner-content h1 {
+          font-size: 1.8rem;
         }
         .banner-content p {
           font-size: 1rem;
+          margin-bottom: 18px;
         }
-        .btn {
-          padding: 10px 16px;
-          font-size: 0.95rem;
+        .products-list {
+          grid-template-columns: 1fr;
+          gap: 16px;
         }
-        h1, h2 {
-          font-size: 1.2rem !important;
+        .product-card {
+          padding: 18px 12px;
         }
-        nav {
-          gap: 6px;
-          font-size: 0.95rem;
+        .product-card img { /* Mobile uyum */
+          max-width: 120px;
+          height: 120px;
+          margin-bottom: 15px;
         }
-        .main-logo {
-          max-width: 90px;
-          height: auto;
-        }
-        .video-wrapper {
-          margin: 12px 0;
+        .video-small {
+          max-width: 95vw;
+          width: 100%;
         }
         .about-section, .products-section, .contact-section {
-          padding: 24px 0;
+          padding: 32px 0;
+        }
+        form {
+          padding: 0 10px;
         }
       }
     </style>
@@ -388,56 +458,60 @@
     </section>
     <section class="products-section" id="products">
         <h2>Ürünlerimiz</h2>
-        <div class="products-list">
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+        <div class="container products-list">
+            <a class="product-card" href="https://www.shopier.com/32915993" target="_blank">
                 <img src="ayak-sampuani.jpg" alt="Ayak Şampuanı">
                 <h3>Ayak Şampuanı</h3>
                 <p>Ayak sağlığınız için özel olarak geliştirilmiş, ferahlatıcı ve temizleyici ayak şampuanı.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/35698987" target="_blank">
                 <img src="ultra-slim-jel.jpg" alt="Ultra Slim Jel">
                 <h3>Ultra Slim Jel</h3>
                 <p>Bölgesel incelmeye yardımcı, ferahlatıcı ve etkili jel.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/intim-yikama-jeli-23456789" target="_blank">
                 <img src="intimyıkamajeli.jpg" alt="İntim Yıkama Jeli">
                 <h3>İntim Yıkama Jeli</h3>
                 <p>Hassas bölgeler için özel olarak geliştirilmiş, nazik temizleyici jel.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/35698314" target="_blank">
                 <img src="yuz-yikama-jeli.jpg" alt="Yüz Yıkama Jeli">
                 <h3>Yüz Yıkama Jeli</h3>
                 <p>Cildinizi nazikçe temizleyen ve ferahlatan yüz yıkama jeli.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/35698463" target="_blank">
                 <img src="tonik.jpg" alt="Richaderm Tonik">
                 <h3>Richaderm Tonik</h3>
                 <p>Canlandırıcı ve gözenek sıkılaştırıcı tonik. Glycolic Acid 5%, AHA+BHA, Lactic Acid içerir. Hassas dahil tüm cilt tipleri için uygundur.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/32915925" target="_blank">
                 <img src="tirnak-bakim.jpg" alt="Tırnak Bakım Losyon & Sprey">
                 <h3>Tırnak Bakım Losyon & Sprey</h3>
                 <p>Tırnakların bakımlı ve canlı görünmesine yardımcı olur. Foot and Nail Care, losyon ve sprey formunda.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/35698622" target="_blank">
                 <img src="beyazlatici-krem.jpg" alt="Beyazlatıcı Krem">
                 <h3>Beyazlatıcı Krem</h3>
                 <p>Aydınlatıcı Collagen, yoğun beyazlatıcı etki. Cildinizin daha parlak ve eşit tonda görünmesine yardımcı olur.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/35698569" target="_blank">
+                <img src="intim-beyazlatici-krem.jpg" alt="İntim Beyazlatıcı Krem">
+                <h3>İntim Beyazlatıcı Krem</h3>
+                <p>Koltuk altı ve genital bölge için, Panthenol, Niacinamide, Kojic Acid içerir. Hassas dahil tüm cilt tipleri için uygundur.</p>
+            </a>
+            <a class="product-card" href="https://www.shopier.com/35698844" target="_blank">
                 <img src="intim-bakim.jpg" alt="İntim Bakım Spreyi">
                 <h3>İntim Bakım Spreyi</h3>
                 <p>Lavanta, çay ağacı ve aynısafa özü ile zenginleştirilmiş; hassas ciltler dahil tüm cilt tipleri için uygundur. İntim bölgesinin doğal florasını korur.</p>
             </a>
-            <a class="product-card" href="https://www.shopier.com/Richaderm" target="_blank">
+            <a class="product-card" href="https://www.shopier.com/35698906" target="_blank">
                 <img src="anti-selulit-losyon.jpg" alt="Anti-Selülit Losyon">
                 <h3>Anti-Selülit Losyon</h3>
-                <p>Çatlakların görünümünü azaltır, cildin elastikiyetini artırır, nemlendirir ve cilt tonunu düzenler. \"Richaderm ile Çatlaklara Veda, Pürüzsüz Cilde Merhaba!\"</p>
+                <p>Çatlakların görünümünü azaltır, cildin elastikiyetini artırır, nemlendirir ve cilt tonunu düzenler. "Richaderm ile Çatlaklara Veda, Pürüzsüz Cilde Merhaba!"</p>
             </a>
         </div>
     </section>
     <section class="video-section" id="video">
-        <h2>Tanıtım Videomuz</h2>
         <div class="video-wrapper">
             <video controls poster="video-poster.jpg" class="video-small">
                 <source src="tanitim.mp4" type="video/mp4">
@@ -452,12 +526,9 @@
                 Richaderm olarak, kozmetik sektöründe üretici kimliğimizle öne çıkıyor ve sağlığa verdiğimiz önemi her ürünümüzde hissettiriyoruz.
             </p>
             <p>
-                Doğal ve güvenilir içeriklerle, cildinizin ihtiyaçlarına uygun çözümler geliştiriyoruz. Üretimden paketlemeye kadar her aşamada kaliteyi ve hijyeni ön planda tutuyoruz. 
-                Müşterilerimizin sağlığı ve memnuniyeti bizim için her şeyden önce gelir. 
+                Doğal ve güvenilir içeriklerle, cildinizin ihtiyaçlarına uygun çözümler geliştiriyoruz. Üretimden paketlemeye kadar her aşamada kaliteyi ve hijyeni ön planda tutuyoruz.
+                Müşterilerimizin sağlığı ve memnuniyeti bizim için her şeyden önce gelir.
                 Yenilikçi yaklaşımımız ve uzman ekibimizle, güzelliğinize değer katmak için çalışıyoruz.
-            </p>
-            <p>
-                Richaderm ile güzellik, sağlık ve güven bir arada!
             </p>
         </div>
     </section>
@@ -474,7 +545,7 @@
     </section>
     <footer>
         <div class="container">
-            <p>&copy; 2024 Richaderm. Tüm hakları saklıdır.</p>
+            <p>&copy; 2016 Richaderm. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 </body>
